@@ -68,12 +68,12 @@ string infixToPostfix(string infix) {
             postfix += ch;
         }
 
-        // Opening bracket
+        
         else if (ch == '(') {
             s.push(ch);
         }
 
-        // Closing bracket
+        
         else if (ch == ')') {
             while (!s.isEmpty() && s.peek() != '(') {
                 postfix += s.pop();
@@ -83,7 +83,7 @@ string infixToPostfix(string infix) {
                 s.pop(); // Remove '('
         }
 
-        // Operator
+        
         else if (isOperator(ch)) {
             while (!s.isEmpty() &&
                    s.peek() != '(' &&
@@ -96,7 +96,7 @@ string infixToPostfix(string infix) {
         }
     }
 
-    // Pop remaining operators
+    
     while (!s.isEmpty()) {
         postfix += s.pop();
     }
@@ -168,12 +168,12 @@ int main() {
 
     for (char ch : postfix) {
 
-        // If operand, push it into stack
+       
         if (ch >= '0' && ch <= '9') {
             s.push(ch - '0');
         }
 
-        // If operator, perform operation
+        
         else if (isOperator(ch)) {
 
             int operand2 = s.pop();
